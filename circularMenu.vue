@@ -1,14 +1,23 @@
 <template>
   <div>
     <div :style="getStyle()">
-      <md-button v-for="(button, index) in buttonList"
-                 :key="index"
-                 :style="getButtonStyle(index)"
-                 style="margin: unset;pointer-events: auto; height: 40px"
-                 class="md-icon-button">
-        <md-icon @mouseover="button.label">
-          {{button.buttonCfg.icon}}</md-icon>
-      </md-button>
+      <transition v-for="(button, index) in buttonList"
+                  :key="index"
+                  name="myCircularOpen"
+                  appear
+                  before-appear="circlecenter"
+                  appear-class="circle"
+                  appear-to-class="opencircle"
+                  leave-to-class="closecircle"
+                  :duration="{ enter: 500, leave: 800 }">
+        <md-button :style="getButtonStyle(index, button)"
+                   @click="button.action"
+                   style="margin: unset;pointer-events: auto; height: 40px"
+                   class="md-icon-button">
+          <md-icon @mouseover="button.label">
+            {{button.buttonCfg.icon}}</md-icon>
+        </md-button>
+      </transition>
     </div>
     <md-button @click="activateMode"
                :style="color"
@@ -58,7 +67,6 @@ export default {
           width: '150px',
           'pointer-events': 'none',
           opacity: 1,
-
           '-webkit-transform': 'scale(1)',
           '-moz-transform': 'scale(1)',
           transform: 'scale(1)',
@@ -78,11 +86,15 @@ export default {
         };
       }
     },
-    getButtonStyle: function(index) {
+    getButtonStyle: function(index, button) {
       let myStyle = {
         left: '',
         top: '',
+        'background-color': this.buttonList[index].buttonCfg.backgroundColor,
         position: 'absolute',
+        '-webkit-transition': 'all 0.4s ease-out',
+        '-moz-transition': 'all 0.4s ease-out',
+        transition: 'all 0.4s ease-out',
       };
 
       let nbrElement = this.buttonList.length;
@@ -99,7 +111,7 @@ export default {
       myStyle.left = 'calc(50% + ' + (axeX - 20) + 'px)';
       myStyle.top = 'calc(50% + ' + (axeY - 20) + 'px)';
       // console.log(myStyle);
-
+      // myStyle;
       return myStyle;
     },
   },
@@ -141,5 +153,18 @@ export default {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   transform: scale(1);
+}
+
+.closecircle {
+  opacity: 0;
+
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  transform: scale(0);
+}
+.circlecenter {
+  left: '0';
+  top: '0';
+  position: 'absolute';
 }
 </style>
