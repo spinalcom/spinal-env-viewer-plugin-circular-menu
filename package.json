@@ -1,80 +1,20 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "spinal-env-viewer-plugin-circular-menu@git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-        "scope": null,
-        "escapedName": "spinal-env-viewer-plugin-circular-menu",
-        "name": "spinal-env-viewer-plugin-circular-menu",
-        "rawSpec": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-        "spec": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-        "type": "hosted",
-        "hosted": {
-          "type": "github",
-          "ssh": "git@github.com:spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-          "sshUrl": "git+ssh://git@github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-          "httpsUrl": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-          "gitUrl": "git://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-          "shortcut": "github:spinalcom/spinal-env-viewer-plugin-circular-menu",
-          "directUrl": "https://raw.githubusercontent.com/spinalcom/spinal-env-viewer-plugin-circular-menu/master/package.json"
-        }
-      },
-      "/home/spinalcom/Documents/spinalcom/spinalcom/spinalcom_full"
-    ]
-  ],
-  "_from": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-  "_id": "spinal-env-viewer-plugin-circular-menu@1.0.3",
-  "_inCache": true,
-  "_location": "/spinal-env-viewer-plugin-circular-menu",
-  "_phantomChildren": {
-    "spinal-env-viewer-context-menu-service": "1.0.0",
-    "spinal-env-viewer-panel-manager-service_spinalforgeextention": "1.0.1",
-    "spinal-env-viewer-plugin-bimobjectservice": "1.0.0",
-    "spinal-env-viewer-plugin-circular-menu": "1.0.3",
-    "vue": "2.5.17"
-  },
-  "_requested": {
-    "raw": "spinal-env-viewer-plugin-circular-menu@git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-    "scope": null,
-    "escapedName": "spinal-env-viewer-plugin-circular-menu",
-    "name": "spinal-env-viewer-plugin-circular-menu",
-    "rawSpec": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-    "spec": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-    "type": "hosted",
-    "hosted": {
-      "type": "github",
-      "ssh": "git@github.com:spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-      "sshUrl": "git+ssh://git@github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-      "httpsUrl": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-      "gitUrl": "git://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-      "shortcut": "github:spinalcom/spinal-env-viewer-plugin-circular-menu",
-      "directUrl": "https://raw.githubusercontent.com/spinalcom/spinal-env-viewer-plugin-circular-menu/master/package.json"
-    }
-  },
-  "_requiredBy": [
-    "#USER",
-    "/",
-    "/spinal-env-viewer-plugin-circular-menu/spinal-env-viewer-plugin-circular-menu-service"
-  ],
-  "_resolved": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git#1cfd84e368d6e15989ce8876f98d005ce24c7b06",
-  "_shasum": "4deaa4d7efbe9174593ffb7e67424d1a40267173",
-  "_shrinkwrap": null,
-  "_spec": "spinal-env-viewer-plugin-circular-menu@git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu.git",
-  "_where": "/home/spinalcom/Documents/spinalcom/spinalcom/spinalcom_full",
-  "author": "",
-  "browserify": {
-    "transform": [
-      "vueify",
-      "babelify"
-    ]
-  },
-  "dependencies": {
-    "spinal-env-viewer-plugin-circular-menu-service": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu-service.git",
-    "spinal-models-bim_forge": "git+https://github.com/spinalcom/spinal-models-bim_forge.git"
-  },
+  "name": "spinal-env-viewer-plugin-circular-menu",
+  "version": "1.0.3",
   "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "spinal-models-bim_forge": "https://github.com/spinalcom/spinal-models-bim_forge.git",
+    "spinal-env-viewer-plugin-circular-menu-service": "https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu-service.git"
+  },
   "devDependencies": {
     "babel-core": "^6.0.0",
+    "eslint": "^5.1.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.0.0",
     "babelify": "^7.2.0",
@@ -82,7 +22,6 @@
     "browserify-hmr": "^0.3.6",
     "commander": "^2.13.0",
     "envify": "^3.4.1",
-    "eslint": "^5.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "exorcist": "^1.0.0",
@@ -99,15 +38,10 @@
     "watchify": "^3.4.0",
     "windowify": "^0.3.0"
   },
-  "gitHead": "1cfd84e368d6e15989ce8876f98d005ce24c7b06",
-  "license": "ISC",
-  "main": "index.js",
-  "name": "spinal-env-viewer-plugin-circular-menu",
-  "optionalDependencies": {},
-  "readme": "# spinal-env-viewer-plugin-circularMenu",
-  "readmeFilename": "README.md",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "1.0.3"
+  "browserify": {
+    "transform": [
+      "vueify",
+      "babelify"
+    ]
+  }
 }
