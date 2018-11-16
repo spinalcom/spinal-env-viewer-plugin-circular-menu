@@ -14,8 +14,8 @@
                    @click="button.action"
                    style="margin: unset;pointer-events: auto; height: 40px"
                    class="md-icon-button">
-          <md-icon @mouseover="button.label">
-            {{button.buttonCfg.icon}}</md-icon>
+          <!-- <md-tooltip>button.label</md-tooltip> -->
+          <md-icon>{{button.buttonCfg.icon}}</md-icon>
         </md-button>
       </transition>
     </div>
@@ -33,68 +33,68 @@ var spinalSystem;
 var viewer;
 
 export default {
-  name: 'circularmenu',
+  name: "circularmenu",
   data() {
     return {
       buttonTab: [],
       data: {},
       color: {
-        background: '#2D3D93',
+        background: "#2D3D93"
       },
-      activateModeBool: true,
+      activateModeBool: true
     };
   },
   components: {},
-  props: ['buttonList', 'x', 'y'],
+  props: ["buttonList", "x", "y"],
   methods: {
     activateMode: function() {
       if (this.activateModeBool) {
         this.activateModeBool = false;
-        this.color.background = '#F68204';
+        this.color.background = "#F68204";
         this.data = {};
       } else {
         this.activateModeBool = true;
-        this.color.background = '#2D3D93';
+        this.color.background = "#2D3D93";
       }
     },
     getStyle: function() {
       if (this.buttonList.length > 0) {
         return {
-          position: 'absolute',
-          left: this.x - 75 + 'px',
-          top: this.y - 75 + 'px',
-          height: '150px',
-          width: '150px',
-          'pointer-events': 'none',
+          position: "absolute",
+          left: this.x - 75 + "px",
+          top: this.y - 75 + "px",
+          height: "150px",
+          width: "150px",
+          "pointer-events": "none",
           opacity: 1,
-          '-webkit-transform': 'scale(1)',
-          '-moz-transform': 'scale(1)',
-          transform: 'scale(1)',
+          "-webkit-transform": "scale(1)",
+          "-moz-transform": "scale(1)",
+          transform: "scale(1)",
 
-          '-webkit-transition': 'all 0.4s ease-out',
-          '-moz-transition': 'all 0.4s ease-out',
-          transition: 'all 0.4s ease-out',
+          "-webkit-transition": "all 0.4s ease-out",
+          "-moz-transition": "all 0.4s ease-out",
+          transition: "all 0.4s ease-out"
         };
       } else {
         return {
-          position: 'absolute',
+          position: "absolute",
           opacity: 0,
 
-          '-webkit-transform': 'scale(0)',
-          '-moz-transform': 'scale(0)',
-          transform: 'scale(0)',
+          "-webkit-transform": "scale(0)",
+          "-moz-transform": "scale(0)",
+          transform: "scale(0)"
         };
       }
     },
     getButtonStyle: function(index, button) {
       let myStyle = {
-        left: '',
-        top: '',
-        'background-color': this.buttonList[index].buttonCfg.backgroundColor,
-        position: 'absolute',
-        '-webkit-transition': 'all 0.4s ease-out',
-        '-moz-transition': 'all 0.4s ease-out',
-        transition: 'all 0.4s ease-out',
+        left: "",
+        top: "",
+        "background-color": this.buttonList[index].buttonCfg.backgroundColor,
+        position: "absolute",
+        "-webkit-transition": "all 0.4s ease-out",
+        "-moz-transition": "all 0.4s ease-out",
+        transition: "all 0.4s ease-out"
       };
 
       let nbrElement = this.buttonList.length;
@@ -108,17 +108,17 @@ export default {
       let axeX = (radius * Math.cos(nbr * index)).toFixed(1);
       let axeY = (radius * Math.sin(nbr * index)).toFixed(1);
       // console.log(axeX, axeY);
-      myStyle.left = 'calc(50% + ' + (axeX - 20) + 'px)';
-      myStyle.top = 'calc(50% + ' + (axeY - 20) + 'px)';
+      myStyle.left = "calc(50% + " + (axeX - 20) + "px)";
+      myStyle.top = "calc(50% + " + (axeY - 20) + "px)";
       // console.log(myStyle);
       // myStyle;
       return myStyle;
-    },
+    }
   },
   mounted() {
     viewer = window.spinal.ForgeViewer.viewer;
     spinalSystem = window.spinal.spinalSystem;
-  },
+  }
 };
 </script>
 
@@ -163,8 +163,8 @@ export default {
   transform: scale(0);
 }
 .circlecenter {
-  left: '0';
-  top: '0';
-  position: 'absolute';
+  left: "0";
+  top: "0";
+  position: "absolute";
 }
 </style>
