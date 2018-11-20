@@ -5,33 +5,30 @@
                   :key="index"
                   name="myCircularOpen"
                   appear
-                  before-appear="circlecenter"
-                  appear-class="circle"
-                  appear-to-class="opencircle"
-                  leave-to-class="closecircle"
+                  before-appear="circle-spinal-circular-menucenter"
+                  appear-class="circle-spinal-circular-menu"
+                  appear-to-class="opencircle-spinal-circular-menu"
+                  leave-to-class="closecircle-spinal-circular-menu"
                   :duration="{ enter: 500, leave: 800 }">
-        <md-button :style="getButtonStyle(index, button)"
-                   @click="button.action"
+        <md-button :style="getButtonStyle(index)"
+                   @click="button.action(options)"
                    style="margin: unset;pointer-events: auto; height: 40px"
-                   class="md-icon-button">
-          <!-- <md-tooltip>button.label</md-tooltip> -->
-          <md-icon>{{button.buttonCfg.icon}}</md-icon>
+                   class="md-icon-button"
+                   v-tooltip="button.label">
+          <md-icon :style="getIconColor(index)">{{button.buttonCfg.icon}}</md-icon>
         </md-button>
       </transition>
     </div>
-    <md-button @click="activateMode"
+    <!-- <md-button @click="activateMode"
                :style="color"
                class="myButton md-icon-button">
-    </md-button>
+    </md-button> -->
 
   </div>
 </template>
 
 
 <script>
-var spinalSystem;
-var viewer;
-
 export default {
   name: "circularmenu",
   data() {
@@ -40,23 +37,23 @@ export default {
       data: {},
       color: {
         background: "#2D3D93"
-      },
-      activateModeBool: true
+      }
+      // activateModeBool: true
     };
   },
   components: {},
-  props: ["buttonList", "x", "y"],
+  props: ["buttonList", "x", "y", "options"],
   methods: {
-    activateMode: function() {
-      if (this.activateModeBool) {
-        this.activateModeBool = false;
-        this.color.background = "#F68204";
-        this.data = {};
-      } else {
-        this.activateModeBool = true;
-        this.color.background = "#2D3D93";
-      }
-    },
+    // activateMode: function() {
+    //   if (this.activateModeBool) {
+    //     this.activateModeBool = false;
+    //     this.color.background = "#F68204";
+    //     this.data = {};
+    //   } else {
+    //     this.activateModeBool = true;
+    //     this.color.background = "#2D3D93";
+    //   }
+    // },
     getStyle: function() {
       if (this.buttonList.length > 0) {
         return {
@@ -86,7 +83,7 @@ export default {
         };
       }
     },
-    getButtonStyle: function(index, button) {
+    getButtonStyle: function(index) {
       let myStyle = {
         left: "",
         top: "",
@@ -98,7 +95,6 @@ export default {
       };
 
       let nbrElement = this.buttonList.length;
-      // console.log(index);
       let radius = 60;
       let nbr = (2 * Math.PI) / nbrElement;
       if (nbrElement >= 7) {
@@ -107,17 +103,19 @@ export default {
       }
       let axeX = (radius * Math.cos(nbr * index)).toFixed(1);
       let axeY = (radius * Math.sin(nbr * index)).toFixed(1);
-      // console.log(axeX, axeY);
       myStyle.left = "calc(50% + " + (axeX - 20) + "px)";
       myStyle.top = "calc(50% + " + (axeY - 20) + "px)";
-      // console.log(myStyle);
-      // myStyle;
       return myStyle;
+    },
+    getIconColor(index) {
+      let color;
+      try {
+        color = this.buttonList[index].buttonCfg.fontColor;
+      } catch (e) {
+        color = "white";
+      }
+      return { color };
     }
-  },
-  mounted() {
-    viewer = window.spinal.ForgeViewer.viewer;
-    spinalSystem = window.spinal.spinalSystem;
   }
 };
 </script>
@@ -135,7 +133,7 @@ export default {
   top: 68px;
 }
 
-.circle {
+.circle-spinal-circular-menu {
   opacity: 0;
 
   -webkit-transform: scale(0);
@@ -147,7 +145,7 @@ export default {
   transition: all 0.4s ease-out;
 }
 
-.opencircle {
+.opencircle-spinal-circular-menu {
   opacity: 1;
 
   -webkit-transform: scale(1);
@@ -155,14 +153,14 @@ export default {
   transform: scale(1);
 }
 
-.closecircle {
+.closecircle-spinal-circular-menu {
   opacity: 0;
 
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
   transform: scale(0);
 }
-.circlecenter {
+.circle-spinal-circular-menucenter {
   left: "0";
   top: "0";
   position: "absolute";
