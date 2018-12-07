@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "spinal-env-viewer-plugin-circular-menu-service": "https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu-service.git"
+    "spinal-env-viewer-plugin-circular-menu-service": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-circular-menu-service.git"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
